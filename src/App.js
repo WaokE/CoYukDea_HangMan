@@ -7,6 +7,28 @@ import EndGameToast from "./Components/EndGameToast";
 
 function App() {
     const { isGameOver } = useStore();
+    const dummyWords = [
+        "Apple",
+        "Banana",
+        "Orange",
+        "Elephant",
+        "Computer",
+        "Guitar",
+        "Butterfly",
+        "Rainbow",
+        "Sunshine",
+        "Dolphin",
+        "Mountain",
+        "Adventure",
+        "Chocolate",
+        "Universe",
+        "Jigsaw",
+        "Happiness",
+        "Balloon",
+        "Serendipity",
+        "Mystery",
+        "Wanderlust",
+    ];
 
     return (
         <div className="App">
