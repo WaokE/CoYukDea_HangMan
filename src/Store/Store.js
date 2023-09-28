@@ -37,7 +37,19 @@ const useStore = create((set) => ({
 
     mistakeCount: 0,
     mistakeOccur() {
-        set((state) => ({ mistakeCount: state.mistakeCount + 1 }));
+        set((state) => {
+            const newMistakeCount = state.mistakeCount + 1;
+            if (newMistakeCount > 6) {
+                return {
+                    mistakeCount: newMistakeCount,
+                    isGameOver: true,
+                };
+            } else {
+                return {
+                    mistakeCount: newMistakeCount,
+                };
+            }
+        });
     },
     mistakeReset() {
         set(() => ({ mistakeCount: 0 }));
