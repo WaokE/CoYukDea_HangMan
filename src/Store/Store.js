@@ -27,7 +27,11 @@ const useStore = create((set) => ({
     answerWord: "None",
     gameSetup() {
         const pickedWord = dummyWords[Math.floor(Math.random() * dummyWords.length)];
-        set(() => ({ answerWord: pickedWord, currentWord: "_".repeat(pickedWord.length) }));
+        set(() => ({
+            answerWord: pickedWord,
+            currentWord: "_".repeat(pickedWord.length),
+            mistakeCount: 0,
+        }));
     },
 
     currentWord: "None",
@@ -42,7 +46,7 @@ const useStore = create((set) => ({
             if (newMistakeCount > 6) {
                 return {
                     mistakeCount: newMistakeCount,
-                    isGameOver: true,
+                    isGameOverMessageVisible: true,
                 };
             } else {
                 return {
@@ -51,16 +55,13 @@ const useStore = create((set) => ({
             }
         });
     },
-    mistakeReset() {
-        set(() => ({ mistakeCount: 0 }));
-    },
 
-    isGameOver: false,
-    gameOver() {
-        set(() => ({ isGameOver: true }));
+    isGameOverMessageVisible: false,
+    showGameOverMessage() {
+        set(() => ({ isGameOverMessageVisible: true }));
     },
-    gameReset() {
-        set(() => ({ isGameOver: false }));
+    hideGameOverMessage() {
+        set(() => ({ isGameOverMessageVisible: false }));
     },
 }));
 

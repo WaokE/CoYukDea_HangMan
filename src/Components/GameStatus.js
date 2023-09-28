@@ -5,6 +5,7 @@ const GameStatus = () => {
 
     const handleGameStart = () => {
         gameSetup();
+        
     };
     return (
         <div>

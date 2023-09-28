@@ -8,14 +8,14 @@ import EndGameToast from "./Components/EndGameToast";
 import "./App.css";
 
 function App() {
-    const { isGameOver } = useStore();
+    const { isGameOverMessageVisible } = useStore();
 
     return (
         <div className="App">
             <GameStatus />
             <DrawHangman />
             <AlphabetButtons />
-            {isGameOver && <EndGameToast />}
+            {isGameOverMessageVisible && <EndGameToast />}
         </div>
     );
 }
