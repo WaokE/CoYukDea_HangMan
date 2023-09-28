@@ -14,6 +14,9 @@ const useStore = create((set) => ({
     gameOver() {
         set((state) => ({ isGameOver: true }));
     },
+    gameReset() {
+        set((state) => ({ isGameOver: false }));
+    },
 }));
 
 export default useStore;
