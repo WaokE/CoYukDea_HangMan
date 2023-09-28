@@ -1,14 +1,15 @@
 import useStore from "../Store/Store";
 
 const GameStatus = () => {
-    const { pickAnswerWord } = useStore();
+    const { currentWord, gameSetup } = useStore();
 
     const handleGameStart = () => {
-        pickAnswerWord();
+        gameSetup();
     };
     return (
         <div>
             <button onClick={handleGameStart}>Game Start</button>
+            <p>{currentWord}</p>
         </div>
     );
 };

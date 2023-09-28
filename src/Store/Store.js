@@ -25,9 +25,14 @@ const dummyWords = [
 
 const useStore = create((set) => ({
     answerWord: "None",
-    pickAnswerWord() {
+    gameSetup() {
         const pickedWord = dummyWords[Math.floor(Math.random() * dummyWords.length)];
-        set(() => ({ answerWord: pickedWord }));
+        set(() => ({ answerWord: pickedWord, currentWord: "_".repeat(pickedWord.length) }));
+    },
+
+    currentWord: "None",
+    setCurrentWord(newWord) {
+        set(() => ({ currentWord: newWord }));
     },
 
     mistakeCount: 0,
