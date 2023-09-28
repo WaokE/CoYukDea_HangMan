@@ -42,7 +42,7 @@ const useStore = create((set) => ({
             if (newMistakeCount > 6) {
                 return {
                     mistakeCount: newMistakeCount,
-                    isGameOver: true,
+                    isGameOverMessageVisible: true,
                 };
             } else {
                 return {
@@ -55,12 +55,12 @@ const useStore = create((set) => ({
         set(() => ({ mistakeCount: 0 }));
     },
 
-    isGameOver: false,
-    gameOver() {
-        set(() => ({ isGameOver: true }));
+    isGameOverMessageVisible: false,
+    showGameOverMessage() {
+        set(() => ({ isGameOverMessageVisible: true }));
     },
-    gameReset() {
-        set(() => ({ isGameOver: false }));
+    hideGameOverMessage() {
+        set(() => ({ isGameOverMessageVisible: false }));
     },
 }));
 
