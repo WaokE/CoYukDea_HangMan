@@ -1,8 +1,11 @@
+import useStore from "../Store/Store";
+
 const AlphabetButtons = () => {
+    const { answerWord } = useStore();
     const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 
     const handleButtonClick = (char) => {
-        alert(`${char}`);
+        answerWord.includes(char) ? console.log("include") : console.log("not include");
     };
 
     return (
