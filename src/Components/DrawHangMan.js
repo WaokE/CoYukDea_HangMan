@@ -93,16 +93,10 @@ const DrawHangman = () => {
         }
     };
 
-    const handleGameReset = () => {
-        mistakeReset();
-        gameReset();
-    };
-
     return (
         <Fragment>
             <pre style={{ fontFamily: "Courier New" }}>{getHangmanArt()}</pre>
-            <button onClick={handleHangManTest}>Test</button>
-            <button onClick={handleGameReset}>Reset</button>
+            <button onClick={handleHangManTest}>Count Up</button>
         </Fragment>
     );
 };
