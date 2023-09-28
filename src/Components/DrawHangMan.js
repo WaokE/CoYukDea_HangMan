@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import useStore from "../Store/Store";
 
 const DrawHangman = () => {
-    const { mistakeCount, mistakeOccur } = useStore();
+    const { mistakeCount } = useStore();
     const hangmanArt = [
         `
     +---+
@@ -86,14 +86,9 @@ const DrawHangman = () => {
         }
     };
 
-    const handleHangManTest = () => {
-        mistakeOccur();
-    };
-
     return (
         <Fragment>
             <pre style={{ fontFamily: "Courier New" }}>{getHangmanArt()}</pre>
-            <button onClick={handleHangManTest}>Test</button>
         </Fragment>
     );
 };
