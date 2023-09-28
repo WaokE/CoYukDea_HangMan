@@ -1,21 +1,49 @@
 import { create } from "zustand";
 
+const dummyWords = [
+    "Apple",
+    "Banana",
+    "Orange",
+    "Elephant",
+    "Computer",
+    "Guitar",
+    "Butterfly",
+    "Rainbow",
+    "Sunshine",
+    "Dolphin",
+    "Mountain",
+    "Adventure",
+    "Chocolate",
+    "Universe",
+    "Jigsaw",
+    "Happiness",
+    "Balloon",
+    "Serendipity",
+    "Mystery",
+    "Wanderlust",
+];
+
 const useStore = create((set) => ({
-    word: "None",
+    answerWord: "None",
+    pickAnswerWord() {
+        const pickedWord = dummyWords[Math.floor(Math.random() * dummyWords.length)];
+        set(() => ({ answerWord: pickedWord }));
+    },
+
     mistakeCount: 0,
     mistakeOccur() {
         set((state) => ({ mistakeCount: state.mistakeCount + 1 }));
     },
     mistakeReset() {
-        set((state) => ({ mistakeCount: 0 }));
+        set(() => ({ mistakeCount: 0 }));
     },
 
     isGameOver: false,
     gameOver() {
-        set((state) => ({ isGameOver: true }));
+        set(() => ({ isGameOver: true }));
     },
     gameReset() {
-        set((state) => ({ isGameOver: false }));
+        set(() => ({ isGameOver: false }));
     },
 }));
 
