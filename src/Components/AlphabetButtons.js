@@ -20,7 +20,15 @@ const AlphabetButtons = () => {
     };
 
     return (
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: "8px" }}>
+        <div
+            style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(6, 1fr)",
+                gap: "8px",
+                width: "50%",
+                margin: "0 auto",
+            }}
+        >
             {alphabet.map((char, index) => (
                 <button key={index} onClick={() => handleButtonClick(char)}>
                     {char}
