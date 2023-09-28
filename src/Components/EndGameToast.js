@@ -1,11 +1,11 @@
 import useStore from "../Store/Store";
 
 const EndGameToast = () => {
-    const { answerWord, hideGameOverMessage, mistakeReset } = useStore();
+    const { answerWord, hideGameOverMessage, gameSetup } = useStore();
 
     const handleResetGame = () => {
         hideGameOverMessage();
-        mistakeReset();
+        gameSetup();
     };
 
     return (
