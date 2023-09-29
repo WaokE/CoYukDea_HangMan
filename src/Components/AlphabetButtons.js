@@ -1,4 +1,13 @@
+import styled from "styled-components";
+
 import useStore from "../Store/Store";
+
+const StyledButton = styled.button`
+    height: 60px;
+    width: 60px;
+    background-color: #f0d264;
+    border-radius: 20px;
+`;
 
 const AlphabetButtons = () => {
     const { answerWord, currentWord, setCurrentWord, mistakeOccur, showGameWinMessage } =
@@ -27,20 +36,22 @@ const AlphabetButtons = () => {
         <div
             style={{
                 display: "grid",
-                gridTemplateColumns: "repeat(6, 1fr)",
-                gap: "8px",
+                gridTemplateColumns: "repeat(6, 0.1fr)",
+                gap: "3px",
                 width: "50%",
                 margin: "0 auto",
+                alignItems: "center",
+                justifyContent: "center",
             }}
         >
             {alphabet.map((char, index) => (
-                <button
+                <StyledButton
                     key={index}
                     onClick={() => handleButtonClick(char)}
                     style={{ fontFamily: "MainFont" }}
                 >
                     {char}
-                </button>
+                </StyledButton>
             ))}
         </div>
     );
