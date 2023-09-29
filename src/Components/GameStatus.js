@@ -5,11 +5,12 @@ const GameStatus = () => {
 
     const handleGameStart = () => {
         gameSetup();
-        
     };
     return (
         <div>
-            <button onClick={handleGameStart}>Game Start</button>
+            <button onClick={handleGameStart} style={{ fontFamily: "MainFont" }}>
+                Game Start
+            </button>
             <p>{currentWord}</p>
         </div>
     );

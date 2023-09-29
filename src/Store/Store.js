@@ -26,8 +26,10 @@ const dummyWords = [
 const useStore = create((set) => ({
     answerWord: "None",
     gameSetup() {
+        // dummyWords에서 랜덤한 단어를 뽑는다.
         const pickedWord = dummyWords[Math.floor(Math.random() * dummyWords.length)];
         set(() => ({
+            // 정답 단어, 현재 단어, 실수 카운트 초기화
             answerWord: pickedWord,
             currentWord: "_".repeat(pickedWord.length),
             mistakeCount: 0,

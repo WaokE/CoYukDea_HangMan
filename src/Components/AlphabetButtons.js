@@ -7,13 +7,14 @@ const AlphabetButtons = () => {
     const handleButtonClick = (char) => {
         // 단어에 포함된 알파벳을 골랐을 시
         if (answerWord.includes(char)) {
+            // 현재 단어에서 맞힌 부분을 갱신해준다.
             const newWordArray = [...currentWord];
             for (let i = 0; i < newWordArray.length; i++) {
                 if (answerWord[i] === char) newWordArray[i] = char;
             }
             setCurrentWord(newWordArray.join(""));
         }
-        // 단어에 포함되지 않은 알파벳을 골랐을 시
+        // 단어에 포함되지 않은 알파벳을 골랐을 시, mistakeCount를 ++ 해준다.
         else {
             mistakeOccur();
         }
@@ -30,7 +31,11 @@ const AlphabetButtons = () => {
             }}
         >
             {alphabet.map((char, index) => (
-                <button key={index} onClick={() => handleButtonClick(char)}>
+                <button
+                    key={index}
+                    onClick={() => handleButtonClick(char)}
+                    style={{ fontFamily: "MainFont" }}
+                >
                     {char}
                 </button>
             ))}

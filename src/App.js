@@ -3,8 +3,9 @@ import useStore from "./Store/Store";
 import GameStatus from "./Components/GameStatus";
 import DrawHangman from "./Components/DrawHangMan";
 import AlphabetButtons from "./Components/AlphabetButtons";
-import EndGameToast from "./Components/EndGameToast";
+import GameOverModal from "./Components/Modals/GameOverModal";
 
+import "./Fonts/Font.css";
 import "./App.css";
 
 function App() {
@@ -15,7 +16,7 @@ function App() {
             <GameStatus />
             <DrawHangman />
             <AlphabetButtons />
-            {isGameOverMessageVisible && <EndGameToast />}
+            {isGameOverMessageVisible && <GameOverModal />}
         </div>
     );
 }
