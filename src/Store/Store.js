@@ -65,6 +65,14 @@ const useStore = create((set) => ({
     hideGameOverMessage() {
         set(() => ({ isGameOverMessageVisible: false }));
     },
+
+    isGameWinMessageVisible: false,
+    showGameWinMessage() {
+        set(() => ({ isGameWinMessageVisible: true }));
+    },
+    hideGameWinMessage() {
+        set(() => ({ isGameWinMessageVisible: false }));
+    },
 }));
 
 export default useStore;

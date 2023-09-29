@@ -15,7 +15,7 @@ const ModalWrapper = styled.div`
     justify-content: center;
 `;
 
-const GameOverModal = () => {
+const GameWinModal = () => {
     const { answerWord, hideGameOverMessage, gameSetup } = useStore();
 
     const handleResetGame = () => {
@@ -23,7 +23,16 @@ const GameOverModal = () => {
         gameSetup();
     };
 
-    return <ModalWrapper></ModalWrapper>;
+    return (
+        <ModalWrapper>
+            <div>
+                <p>게임 성공! 단어는 {answerWord} 였습니다.</p>
+                <button onClick={handleResetGame} style={{ fontFamily: "MainFont" }}>
+                    게임 재시작
+                </button>
+            </div>
+        </ModalWrapper>
+    );
 };
 
-export default GameOverModal;
+export default GameWinModal;

@@ -1,7 +1,8 @@
 import useStore from "../Store/Store";
 
 const AlphabetButtons = () => {
-    const { answerWord, currentWord, setCurrentWord, mistakeOccur } = useStore();
+    const { answerWord, currentWord, setCurrentWord, mistakeOccur, showGameWinMessage } =
+        useStore();
     const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 
     const handleButtonClick = (char) => {
@@ -12,7 +13,9 @@ const AlphabetButtons = () => {
             for (let i = 0; i < newWordArray.length; i++) {
                 if (answerWord[i] === char) newWordArray[i] = char;
             }
-            setCurrentWord(newWordArray.join(""));
+            const newWord = newWordArray.join("");
+            setCurrentWord(newWord);
+            if (newWord === answerWord) showGameWinMessage();
         }
         // 단어에 포함되지 않은 알파벳을 골랐을 시, mistakeCount를 ++ 해준다.
         else {
