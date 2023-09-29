@@ -19,7 +19,8 @@ function App() {
             {isGameStartMessageVisible && <GameStartModal />}
             {!isGameStartMessageVisible && (
                 <>
-                    <GameStatus /> <DrawHangman />
+                    <GameStatus />
+                    <DrawHangman />
                     <AlphabetButtons />
                 </>
             )}

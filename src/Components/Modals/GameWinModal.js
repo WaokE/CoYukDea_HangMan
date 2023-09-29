@@ -10,9 +10,10 @@ const ModalWrapper = styled.div`
     width: 50%;
     height: 50%;
     display: flex;
-    background-color: yellow;
+    background-color: #fce09b;
     align-items: center;
     justify-content: center;
+    border-radius: 20px;
 `;
 
 const GameWinModal = () => {
