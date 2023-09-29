@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import useStore from "../../Store/Store";
+import useAlphabetUsageStore from "../../Store/AlphabetUsageStore";
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -18,10 +19,12 @@ const ModalWrapper = styled.div`
 
 const GameOverModal = () => {
     const { answerWord, hideGameOverMessage, gameSetup } = useStore();
+    const { clearAlphabetUsage } = useAlphabetUsageStore();
 
     const handleResetGame = () => {
         hideGameOverMessage();
         gameSetup();
+        clearAlphabetUsage();
     };
 
     return (

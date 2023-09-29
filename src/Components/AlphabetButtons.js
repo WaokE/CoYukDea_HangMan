@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import useStore from "../Store/Store";
+import useAlphabetUsageStore from "../Store/AlphabetUsageStore";
 
 const StyledButton = styled.button`
     height: 60px;
@@ -12,6 +13,7 @@ const StyledButton = styled.button`
 const AlphabetButtons = () => {
     const { answerWord, currentWord, setCurrentWord, mistakeOccur, showGameWinMessage } =
         useStore();
+    const { alphabetUsage, toggleAlphabetUsage } = useAlphabetUsageStore();
     const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 
     const handleButtonClick = (char) => {
@@ -30,6 +32,7 @@ const AlphabetButtons = () => {
         else {
             mistakeOccur();
         }
+        toggleAlphabetUsage(char);
     };
 
     return (
@@ -49,6 +52,7 @@ const AlphabetButtons = () => {
                     key={index}
                     onClick={() => handleButtonClick(char)}
                     style={{ fontFamily: "MainFont" }}
+                    disabled={alphabetUsage[char]}
                 >
                     {char}
                 </StyledButton>
