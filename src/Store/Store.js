@@ -58,6 +58,14 @@ const useStore = create((set) => ({
         });
     },
 
+    isGameStartMessageVisible: true,
+    showGameStartMessage() {
+        set(() => ({ isGameStartMessageVisible: true }));
+    },
+    hideGameStartMessage() {
+        set(() => ({ isGameStartMessageVisible: false }));
+    },
+
     isGameOverMessageVisible: false,
     showGameOverMessage() {
         set(() => ({ isGameOverMessageVisible: true }));
