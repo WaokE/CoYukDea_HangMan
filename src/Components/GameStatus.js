@@ -5,7 +5,7 @@ const GameStatus = () => {
 
     return (
         <div>
-            <p>{currentWord}</p>
+            <p>{currentWord.split("").join(" ")}</p>
         </div>
     );
 };
