@@ -1,6 +1,7 @@
 import styled from "styled-components";
 
 import useStore from "../../Store/Store";
+import useAlphabetUsageStore from "../../Store/AlphabetUsageStore";
 
 const ModalWrapper = styled.div`
     position: fixed;
@@ -18,10 +19,11 @@ const ModalWrapper = styled.div`
 
 const GameStartModal = () => {
     const { hideGameStartMessage, gameSetup } = useStore();
+    const { toggleAlphabetUsage } = useAlphabetUsageStore();
 
     const handleStartGame = () => {
         hideGameStartMessage();
-        gameSetup();
+        toggleAlphabetUsage(gameSetup());
     };
 
     return (

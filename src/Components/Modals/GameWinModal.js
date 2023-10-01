@@ -19,12 +19,12 @@ const ModalWrapper = styled.div`
 
 const GameWinModal = () => {
     const { answerWord, hideGameWinMessage, gameSetup } = useStore();
-    const { clearAlphabetUsage } = useAlphabetUsageStore();
+    const { clearAlphabetUsage, toggleAlphabetUsage } = useAlphabetUsageStore();
 
     const handleResetGame = () => {
         hideGameWinMessage();
-        gameSetup();
         clearAlphabetUsage();
+        toggleAlphabetUsage(gameSetup());
     };
 
     return (
