@@ -18,8 +18,15 @@ const ModalWrapper = styled.div`
 `;
 
 const GameOverModal = () => {
-    const { answerWord, hideGameOverMessage, gameSetup, gameScore, gameScoreClear, hideHint } =
-        useStore();
+    const {
+        answerWord,
+        hideGameOverMessage,
+        gameSetup,
+        gameScore,
+        gameScoreClear,
+        hideHint,
+        resetHint,
+    } = useStore();
     const { clearAlphabetUsage, toggleAlphabetUsage } = useAlphabetUsageStore();
 
     const handleResetGame = () => {
@@ -28,6 +35,7 @@ const GameOverModal = () => {
         toggleAlphabetUsage(gameSetup());
         gameScoreClear();
         hideHint();
+        resetHint();
     };
 
     return (
