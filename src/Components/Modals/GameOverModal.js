@@ -18,19 +18,23 @@ const ModalWrapper = styled.div`
 `;
 
 const GameOverModal = () => {
-    const { answerWord, hideGameOverMessage, gameSetup } = useStore();
+    const { answerWord, hideGameOverMessage, gameSetup, gameScore, gameScoreClear, hideHint } =
+        useStore();
     const { clearAlphabetUsage, toggleAlphabetUsage } = useAlphabetUsageStore();
 
     const handleResetGame = () => {
         hideGameOverMessage();
         clearAlphabetUsage();
         toggleAlphabetUsage(gameSetup());
+        gameScoreClear();
+        hideHint();
     };
 
     return (
         <ModalWrapper>
             <div>
-                <p>게임 실패! 단어는 {answerWord} 였습니다.</p>
+                <p>게임 실패! 단어는 {answerWord} (이)였습니다.</p>
+                <p>점수 : {gameScore}</p>
                 <button onClick={handleResetGame} style={{ fontFamily: "MainFont" }}>
                     게임 재시작
                 </button>

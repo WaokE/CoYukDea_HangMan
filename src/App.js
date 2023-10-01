@@ -6,13 +6,18 @@ import AlphabetButtons from "./Components/AlphabetButtons";
 import GameStartModal from "./Components/Modals/GameStartModal";
 import GameOverModal from "./Components/Modals/GameOverModal";
 import GameWinModal from "./Components/Modals/GameWinModal";
+import HintMessage from "./Components/HintMessage";
 
 import "./Fonts/Font.css";
 import "./App.css";
 
 function App() {
-    const { isGameStartMessageVisible, isGameOverMessageVisible, isGameWinMessageVisible } =
-        useStore();
+    const {
+        isGameStartMessageVisible,
+        isGameOverMessageVisible,
+        isGameWinMessageVisible,
+        isHintVisible,
+    } = useStore();
 
     return (
         <div className="App">
@@ -27,6 +32,7 @@ function App() {
 
             {isGameOverMessageVisible && <GameOverModal />}
             {isGameWinMessageVisible && <GameWinModal />}
+            {isHintVisible && <HintMessage />}
         </div>
     );
 }

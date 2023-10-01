@@ -1,34 +1,132 @@
 import { create } from "zustand";
 
-const dummyWords = [
-    "APPLE",
-    "BANANA",
-    "ORANGE",
-    "ELEPHANT",
-    "COMPUTER",
-    "GUITAR",
-    "BUTTERFLY",
-    "RAINBOW",
-    "SUNSHINE",
-    "DOLPHIN",
-    "MOUNTAIN",
-    "ADVENTURE",
-    "CHOCOLATE",
-    "UNIVERSE",
-    "JIGSAW",
-    "HAPPINESS",
-    "BALLOON",
-    "SERENDIPITY",
-    "MYSTERY",
-    "WANDERLUST",
-];
+const dummyWords = {
+    과일: [
+        "APPLE",
+        "BANANA",
+        "ORANGE",
+        "STRAWBERRY",
+        "GRAPES",
+        "WATERMELON",
+        "PINEAPPLE",
+        "MANGO",
+        "KIWI",
+        "PEACH",
+        "PLUM",
+        "CHERRY",
+        "LEMON",
+        "PEAR",
+    ],
+    음식: [
+        "PIZZA",
+        "SUSHI",
+        "BURGER",
+        "PASTA",
+        "SALAD",
+        "STEAK",
+        "ICECREAM",
+        "PANCAKE",
+        "SANDWICH",
+        "TACO",
+        "SPAGHETTI",
+        "CHEESE",
+        "CHOCOLATE",
+        "COFFEE",
+        "CUPCAKE",
+    ],
+    감정: [
+        "HAPPY",
+        "SAD",
+        "ANGRY",
+        "SURPRISED",
+        "EXCITED",
+        "CALM",
+        "CONFUSED",
+        "LOVE",
+        "HATE",
+        "GRATEFUL",
+        "NERVOUS",
+        "CONTENT",
+        "AMUSED",
+        "DISGUSTED",
+        "HOPEFUL",
+    ],
+    동물: [
+        "LION",
+        "ELEPHANT",
+        "TIGER",
+        "GIRAFFE",
+        "MONKEY",
+        "PENGUIN",
+        "KANGAROO",
+        "ZEBRA",
+        "GORILLA",
+        "CHEETAH",
+        "KOALA",
+        "HIPPOPOTAMUS",
+        "PANDA",
+        "CROCODILE",
+        "GIRAFFE",
+    ],
+    악기: [
+        "PIANO",
+        "GUITAR",
+        "VIOLIN",
+        "TRUMPET",
+        "FLUTE",
+        "DRUMS",
+        "CELLO",
+        "SAXOPHONE",
+        "HARP",
+        "XYLOPHONE",
+        "ACCORDEON",
+        "BANJO",
+        "HARMONICA",
+        "TROMBONE",
+        "OBOE",
+    ],
+    도구: [
+        "HAMMER",
+        "SCREWDRIVER",
+        "WRENCH",
+        "SAW",
+        "LEVEL",
+        "DRILL",
+        "TROWEL",
+        "SCISSORS",
+        "STAPLER",
+        "PENCIL",
+    ],
+    전자제품: [
+        "COMPUTER",
+        "SMARTPHONE",
+        "TABLET",
+        "LAPTOP",
+        "TELEVISION",
+        "HEADPHONES",
+        "CAMERA",
+        "PRINTER",
+        "MICROWAVE",
+        "REFRIGERATOR",
+        "DRONE",
+        "SMARTWATCH",
+        "PROJECTOR",
+        "SPEAKER",
+        "EARBUDS",
+    ],
+};
 
 const useStore = create((set) => {
     return {
         answerWord: "None",
+        category: "",
         gameSetup() {
-            // dummyWords에서 랜덤한 단어를 뽑는다.
-            const pickedWord = dummyWords[Math.floor(Math.random() * dummyWords.length)];
+            // 랜덤으로 카테고리를 하나 뽑는다.
+            const category =
+                Object.keys(dummyWords)[Math.floor(Math.random() * Object.keys(dummyWords).length)];
+            const wordsOfCategory = dummyWords[category];
+            // 카테고리에서 랜덤한 단어를 뽑는다.
+            const pickedWord = wordsOfCategory[Math.floor(Math.random() * wordsOfCategory.length)];
             // 뽑은 단어와 동일한 길이의 '_'로 이루어진 배열을 만든다.
             const startWord = new Array(pickedWord.length).fill("_");
             // 게임 시작 시 밝힐 알파벳을 랜덤으로 뽑는다.
@@ -41,12 +139,21 @@ const useStore = create((set) => {
             for (let i = 0; i < startWord.length; i++)
                 if (pickedWord[i] === setupRevealAlphabet) startWord[i] = setupRevealAlphabet;
             set(() => ({
-                // 정답 단어, 현재 단어, 실수 카운트 초기화
+                // 정답 단어, 현재 단어, 실수 카운트, 카테고리 초기화
                 answerWord: pickedWord,
                 currentWord: startWord.join(""),
                 mistakeCount: 0,
+                category: category,
             }));
             return setupRevealAlphabet;
+        },
+
+        gameScore: 0,
+        gameScoreUp() {
+            set((state) => ({ gameScore: state.gameScore + 1 }));
+        },
+        gameScoreClear() {
+            set(() => ({ gameScore: 0 }));
         },
 
         currentWord: "None",
@@ -71,6 +178,18 @@ const useStore = create((set) => {
             });
         },
 
+        hintMessage: "",
+        setHintMessage(message) {
+            set(() => ({ hintMessage: message }));
+        },
+        leftHint: 2,
+        Hint() {
+            set((state) => ({ leftHint: state.leftHint - 1 }));
+        },
+        resetHint() {
+            set(() => ({ leftHint: 2 }));
+        },
+
         isGameStartMessageVisible: true,
         showGameStartMessage() {
             set(() => ({ isGameStartMessageVisible: true }));
@@ -93,6 +212,14 @@ const useStore = create((set) => {
         },
         hideGameWinMessage() {
             set(() => ({ isGameWinMessageVisible: false }));
+        },
+
+        isHintVisible: false,
+        showHint() {
+            set(() => ({ isHintVisible: true }));
+        },
+        hideHint() {
+            set(() => ({ isHintVisible: false }));
         },
     };
 });
