@@ -27,12 +27,16 @@ const GameOverModal = () => {
         hideHint,
         resetHint,
     } = useStore();
-    const { clearAlphabetUsage, toggleAlphabetUsage } = useAlphabetUsageStore();
+    const { clearAlphabetUsage, toggleAlphabetUsage, clearAlphabetRight, toggleAlphabetRight } =
+        useAlphabetUsageStore();
 
     const handleResetGame = () => {
         hideGameOverMessage();
         clearAlphabetUsage();
-        toggleAlphabetUsage(gameSetup());
+        clearAlphabetRight();
+        const char = gameSetup();
+        toggleAlphabetUsage(char);
+        toggleAlphabetRight(char);
         gameScoreClear();
         hideHint();
         resetHint();

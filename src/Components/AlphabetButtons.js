@@ -15,8 +15,8 @@ const StyledButton = styled.button`
             opacity: 0.5;
             cursor: not-allowed;
 
-            border: 2px solid ${props.isRightAlphabet ? "red" : "blue"};
-            color: ${props.isRightAlphabet ? "red" : "blue"};
+            border: 2px solid ${props.isRightAlphabet ? "blue" : "red"};
+            color: ${props.isRightAlphabet ? "blue" : "red"};
         `}
 `;
 

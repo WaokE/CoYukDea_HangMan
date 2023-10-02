@@ -19,11 +19,13 @@ const ModalWrapper = styled.div`
 
 const GameStartModal = () => {
     const { hideGameStartMessage, gameSetup } = useStore();
-    const { toggleAlphabetUsage } = useAlphabetUsageStore();
+    const { toggleAlphabetUsage, toggleAlphabetRight } = useAlphabetUsageStore();
 
     const handleStartGame = () => {
         hideGameStartMessage();
-        toggleAlphabetUsage(gameSetup());
+        const char = gameSetup();
+        toggleAlphabetUsage(char);
+        toggleAlphabetRight(char);
     };
 
     return (
