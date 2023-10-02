@@ -103,7 +103,7 @@ const dummyWords = {
         "TABLET",
         "LAPTOP",
         "TELEVISION",
-        "HEADPHONES",
+        "HEADPHONE",
         "CAMERA",
         "PRINTER",
         "MICROWAVE",
