@@ -21,6 +21,18 @@ const useAlphabetUsageStore = create((set) => {
             set(() => ({
                 alphabetUsage: initialAlphabetUsage,
             })),
+        alphabetRight: initialAlphabetUsage,
+        toggleAlphabetRight: (letter) =>
+            set((state) => ({
+                alphabetRight: {
+                    ...state.alphabetRight,
+                    [letter]: !state.alphabetRight[letter],
+                },
+            })),
+        clearAlphabetRight: () =>
+            set(() => ({
+                alphabetRight: initialAlphabetUsage,
+            })),
     };
 });
 

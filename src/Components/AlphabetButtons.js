@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import useStore from "../Store/Store";
 import useAlphabetUsageStore from "../Store/AlphabetUsageStore";
@@ -8,12 +8,23 @@ const StyledButton = styled.button`
     width: 60px;
     background-color: #f0d264;
     border-radius: 20px;
+
+    ${(props) =>
+        props.disabled &&
+        css`
+            opacity: 0.5;
+            cursor: not-allowed;
+
+            border: 2px solid ${props.isRightAlphabet ? "red" : "blue"};
+            color: ${props.isRightAlphabet ? "red" : "blue"};
+        `}
 `;
 
 const AlphabetButtons = () => {
     const { answerWord, currentWord, setCurrentWord, mistakeOccur, showGameWinMessage } =
         useStore();
-    const { alphabetUsage, toggleAlphabetUsage } = useAlphabetUsageStore();
+    const { alphabetUsage, toggleAlphabetUsage, alphabetRight, toggleAlphabetRight } =
+        useAlphabetUsageStore();
     const alphabet = Array.from({ length: 26 }, (_, i) => String.fromCharCode(65 + i));
 
     const handleButtonClick = (char) => {
@@ -27,6 +38,7 @@ const AlphabetButtons = () => {
             const newWord = newWordArray.join("");
             setCurrentWord(newWord);
             if (newWord === answerWord) showGameWinMessage();
+            toggleAlphabetRight(char);
         }
         // 단어에 포함되지 않은 알파벳을 골랐을 시, mistakeCount를 ++ 해준다.
         else {
@@ -53,6 +65,7 @@ const AlphabetButtons = () => {
                     onClick={() => handleButtonClick(char)}
                     style={{ fontFamily: "MainFont" }}
                     disabled={alphabetUsage[char]}
+                    isRightAlphabet={alphabetRight[char]}
                 >
                     {char}
                 </StyledButton>
