@@ -1,13 +1,13 @@
 import { Fragment } from "react";
 import useStore from "../Store/Store";
-import bunny1 from "../Images/송편토끼-01.jpg";
-import bunny2 from "../Images/송편토끼-02.jpg";
-import bunny3 from "../Images/송편토끼-03.jpg";
-import bunny4 from "../Images/송편토끼-04.jpg";
-import bunny5 from "../Images/송편토끼-05.jpg";
-import bunny6 from "../Images/송편토끼-06.jpg";
-import bunny7 from "../Images/송편토끼-07.jpg";
-import bunny8 from "../Images/송편토끼-08.jpg";
+import bunny1 from "../Images/1.png";
+import bunny2 from "../Images/2.png";
+import bunny3 from "../Images/3.png";
+import bunny4 from "../Images/4.png";
+import bunny5 from "../Images/5.png";
+import bunny6 from "../Images/6.png";
+import bunny7 from "../Images/7.png";
+import bunny8 from "../Images/8.png";
 
 const hangmanArt = [bunny1, bunny2, bunny3, bunny4, bunny5, bunny6, bunny7, bunny8];
 
