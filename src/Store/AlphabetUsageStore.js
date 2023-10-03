@@ -33,6 +33,11 @@ const useAlphabetUsageStore = create((set) => {
             set(() => ({
                 alphabetRight: initialAlphabetUsage,
             })),
+        hintUsed: false,
+        toggleHintUsed: () =>
+            set((state) => ({
+                hintUsed: !state.hintUsed,
+            })),
     };
 });
 
