@@ -2,3 +2,11 @@
     text-align: center;
     font-family: "MainFont";
 }
+
+body {
+    background-image: url("./Images/추석배경.jpg");
+    background-repeat: no-repeat;
+    background-position: top center;
+    background-size: cover;
+    background-attachment: fixed;
+}
