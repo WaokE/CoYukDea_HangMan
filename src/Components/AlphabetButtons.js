@@ -8,6 +8,11 @@ const StyledButton = styled.button`
     width: 60px;
     background-color: #f0d264;
     border-radius: 20px;
+    transition: all 0.2s;
+
+    &:hover {
+        background: #ecc535;
+    }
 
     ${(props) =>
         props.disabled &&

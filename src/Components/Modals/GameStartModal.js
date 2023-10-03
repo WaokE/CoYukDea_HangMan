@@ -3,6 +3,8 @@ import styled from "styled-components";
 import useStore from "../../Store/Store";
 import useAlphabetUsageStore from "../../Store/AlphabetUsageStore";
 
+import gameStartBunny from "../../Images/1.png";
+
 const ModalWrapper = styled.div`
     position: fixed;
     top: 50%;
@@ -15,6 +17,21 @@ const ModalWrapper = styled.div`
     align-items: center;
     justify-content: center;
     border-radius: 20px;
+`;
+
+const StyledButton = styled.button`
+    width: 100px;
+    padding: 0;
+    font-weight: 200;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    transition: all 0.2s;
+    background: #f0d264;
+
+    &:hover {
+        background: #ecc535;
+    }
 `;
 
 const GameStartModal = () => {
@@ -31,10 +48,15 @@ const GameStartModal = () => {
     return (
         <ModalWrapper>
             <div>
-                <p>행맨 게임</p>
-                <button onClick={handleStartGame} style={{ fontFamily: "MainFont" }}>
+                <img
+                    src={gameStartBunny}
+                    alt={`Game start bunny`}
+                    style={{ maxWidth: "10%", height: "auto" }}
+                />
+                <p>송편토끼 행맨 게임</p>
+                <StyledButton onClick={handleStartGame} style={{ fontFamily: "MainFont" }}>
                     게임 시작
-                </button>
+                </StyledButton>
             </div>
         </ModalWrapper>
     );

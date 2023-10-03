@@ -3,6 +3,8 @@ import styled from "styled-components";
 import useStore from "../../Store/Store";
 import useAlphabetUsageStore from "../../Store/AlphabetUsageStore";
 
+import gameOverBunny from "../../Images/8.png";
+
 const ModalWrapper = styled.div`
     position: fixed;
     top: 50%;
@@ -17,6 +19,21 @@ const ModalWrapper = styled.div`
     border-radius: 20px;
 `;
 
+const StyledButton = styled.button`
+    width: 100px;
+    padding: 0;
+    font-weight: 200;
+    text-align: center;
+    line-height: 50px;
+    border-radius: 5px;
+    transition: all 0.2s;
+    background: #f0d264;
+
+    &:hover {
+        background: #ecc535;
+    }
+`;
+
 const GameOverModal = () => {
     const {
         answerWord,
@@ -27,8 +44,14 @@ const GameOverModal = () => {
         hideHint,
         resetHint,
     } = useStore();
-    const { clearAlphabetUsage, toggleAlphabetUsage, clearAlphabetRight, toggleAlphabetRight } =
-        useAlphabetUsageStore();
+    const {
+        clearAlphabetUsage,
+        toggleAlphabetUsage,
+        clearAlphabetRight,
+        toggleAlphabetRight,
+        hintUsed,
+        toggleHintUsed,
+    } = useAlphabetUsageStore();
 
     const handleResetGame = () => {
         hideGameOverMessage();
@@ -40,16 +63,22 @@ const GameOverModal = () => {
         gameScoreClear();
         hideHint();
         resetHint();
+        if (hintUsed) toggleHintUsed();
     };
 
     return (
         <ModalWrapper>
             <div>
+                <img
+                    src={gameOverBunny}
+                    alt={`Game over bunny`}
+                    style={{ maxWidth: "10%", height: "auto" }}
+                />
                 <p>게임 실패! 단어는 {answerWord} (이)였습니다.</p>
                 <p>점수 : {gameScore}</p>
-                <button onClick={handleResetGame} style={{ fontFamily: "MainFont" }}>
+                <StyledButton onClick={handleResetGame} style={{ fontFamily: "MainFont" }}>
                     게임 재시작
-                </button>
+                </StyledButton>
             </div>
         </ModalWrapper>
     );
