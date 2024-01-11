@@ -8,20 +8,22 @@
 개인적으로 학습한 다양한 기술 스택을 적극적으로 활용하여 작업하는 데에 초점을 두었습니다.
 
 [Hangman Bunny 페이지 바로가기](https://hangman-game-8fe58.web.app/)
+
+# 빌드 
 ```
-~~ 실행 가능
+npm start
 ```
 
 # 사용한 기술
-Programming language: JavaScipt
+- Programming language: JavaScipt
 
-Framework: React
+- Framework: React
 
-State management: Zustand
+- State management: Zustand
 
-CSS: styled-component
+- CSS: styled-component
 
-Deployment: Firebase
+- Deployment: Firebase
 
 # 게임 진행
 ![image](https://github.com/WaokE/CoYukDea_HangMan/assets/128684924/c928f465-7d61-4a6f-a60d-4afef06b22aa)
