@@ -1,3 +1,5 @@
+import { useEffect } from "react";
+
 import useStore from "./Store/Store";
 
 import GameStatus from "./Components/GameStatus";
@@ -18,6 +20,12 @@ function App() {
         isGameWinMessageVisible,
         isHintVisible,
     } = useStore();
+
+    useEffect(() => {
+        if (window.Cypress) {
+            window.store = useStore;
+        }
+    }, []);
 
     return (
         <div className="App">

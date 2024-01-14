@@ -46,7 +46,7 @@ const GameStartModal = () => {
     };
 
     return (
-        <ModalWrapper>
+        <ModalWrapper data-cy="gameStartModal">
             <div>
                 <img
                     src={gameStartBunny}
@@ -54,7 +54,11 @@ const GameStartModal = () => {
                     style={{ maxWidth: "10%", height: "auto" }}
                 />
                 <p>송편토끼 행맨 게임</p>
-                <StyledButton onClick={handleStartGame} style={{ fontFamily: "MainFont" }}>
+                <StyledButton
+                    onClick={handleStartGame}
+                    style={{ fontFamily: "MainFont" }}
+                    data-cy="startButton"
+                >
                     게임 시작
                 </StyledButton>
             </div>
