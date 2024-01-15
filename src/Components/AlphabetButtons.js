@@ -71,6 +71,7 @@ const AlphabetButtons = () => {
                     style={{ fontFamily: "MainFont" }}
                     disabled={alphabetUsage[char]}
                     isRightAlphabet={alphabetRight[char]}
+                    data-cy={`alphabetButton${char}`}
                 >
                     {char}
                 </StyledButton>

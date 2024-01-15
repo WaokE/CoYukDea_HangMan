@@ -53,7 +53,7 @@ const GameWinModal = () => {
     };
 
     return (
-        <ModalWrapper>
+        <ModalWrapper data-cy="gameWinModal">
             <div>
                 <p>게임 성공! 단어는 {answerWord} 였습니다.</p>
                 <StyledButton onClick={handleClearGame} style={{ fontFamily: "MainFont" }}>

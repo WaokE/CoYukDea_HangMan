@@ -43,6 +43,7 @@ const GameStatus = () => {
                 onClick={handleUseHint}
                 style={{ fontFamily: "MainFont" }}
                 disabled={hintUsed}
+                data-cy="hintButton"
             >
                 힌트 보기
             </StyledButton>
