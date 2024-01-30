@@ -1,3 +1,5 @@
+<div align='center'>
+
 # Hangman Bunny
 ![1](https://github.com/WaokE/CoYukDea_HangMan/assets/128684924/c49f1207-3e9d-4177-b295-b9a780443eb1)
 
@@ -47,6 +49,6 @@ npm run cypress
 ![image](https://github.com/WaokE/CoYukDea_HangMan/assets/128684924/b2f759be-2303-4cde-9bc4-05f8ca086be6)
 기회를 모두 사용하지 않고 정답 단어를 밝혀내는 데에 성공한다면, 점수를 획득하고 다음 라운드로 이어집니다.
 
-최고 점수에 도전해보세요❗
+### 최고 점수에 도전해보세요❗
 
-
+</div>
